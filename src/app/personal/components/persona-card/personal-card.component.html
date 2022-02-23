@@ -8,10 +8,17 @@
    <img mat-card-image [src]="persona | imagen">
 
     <mat-card-content>
-        <h3><mat-icon mat-list-icon>golf_course</mat-icon><strong>Altura: </strong> {{persona.altura / 100}} </h3>
-
-        <mat-icon mat-list-icon>accessibility_new</mat-icon><strong>PESO: </strong> {{persona.peso | number: '2.2'}} Kg
+        <h3><mat-icon mat-list-icon>golf_course</mat-icon><strong>Altura: </strong>
+            <span >{{persona.altura / 100}}</span>  
+        </h3>
+        
+        <mat-icon mat-list-icon>accessibility_new</mat-icon><strong>PESO: </strong> 
+         <span *ngIf="persona.peso < 100">{{persona.peso  | number: '2.1' }} Kg</span>
+         <span *ngIf="persona.peso > 100">{{persona.peso / 10 | number: '2.1' }} Kg</span>
+         <span *ngIf="persona.peso > 1000">{{persona.peso / 10 | number: '3.1' }} Kg</span>
     </mat-card-content>
+
+    
 
     <mat-card-actions>
         <button class="btn-bootstrap" style="width: 100%;" color="warn" [routerLink]="['/personal', persona.id]">

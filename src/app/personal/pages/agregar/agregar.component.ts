@@ -65,6 +65,12 @@ export class AgregarComponent implements OnInit {
 
       if (!Number.isInteger(peso)) {
         this.persona.peso = peso * 10;
+   
+      }
+
+      if (Number.isInteger(peso) && peso >100) {
+        this.persona.peso = peso * 10;
+   
       }
 
     

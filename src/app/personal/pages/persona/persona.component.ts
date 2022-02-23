@@ -37,7 +37,15 @@ export class PersonaComponent implements OnInit {
     .subscribe( persona => {
       this.persona = persona
       let alt = ( this.persona.altura / 100 ) ;
-      this.resultado.calculo = this.persona.peso  / (alt * alt);
+
+      let peso = this.persona.peso;
+
+      if (this.persona.peso > 100) {
+        peso = this.persona.peso / 10;
+      }
+    
+
+      this.resultado.calculo = peso  / (alt * alt);
 
       if ( this.resultado.calculo < 18.5) {
 

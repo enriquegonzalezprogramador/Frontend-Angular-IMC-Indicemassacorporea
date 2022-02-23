@@ -27,7 +27,9 @@
                     <mat-card-content>
                         <mat-list>
                             <mat-list-item><mat-icon mat-list-icon>spa</mat-icon><span><strong>Idade: </strong> {{persona.edad}} Anos</span></mat-list-item>
-                            <mat-list-item><mat-icon mat-list-icon>fitness_center</mat-icon><span><strong>Peso: </strong> {{persona.peso | number: '2.2'}} KG</span></mat-list-item>
+                            <mat-list-item *ngIf="persona.peso < 100"><mat-icon mat-list-icon>fitness_center</mat-icon><span ><strong>Peso: </strong> {{persona.peso  | number: '2.1' }} Kg</span></mat-list-item>
+                            <mat-list-item  *ngIf="persona.peso > 100"><mat-icon mat-list-icon>fitness_center</mat-icon><span><strong>Peso: </strong> {{persona.peso / 10  | number: '2.1' }} Kg</span></mat-list-item>
+                            <mat-list-item *ngIf="persona.peso > 1000"><mat-icon mat-list-icon>fitness_center</mat-icon><span ><strong>Peso: </strong> {{persona.peso / 10  | number: '3.1' }} Kg</span></mat-list-item>
                             <mat-list-item><mat-icon mat-list-icon>golf_course</mat-icon><span><strong>Altura: </strong> {{persona.altura / 100}} </span></mat-list-item>
                         </mat-list>
                     </mat-card-content>
