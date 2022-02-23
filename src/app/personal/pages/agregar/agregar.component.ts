@@ -64,7 +64,7 @@ export class AgregarComponent implements OnInit {
       const peso = this.persona.peso;
 
       if (!Number.isInteger(peso)) {
-        this.persona.peso = peso * 100;
+        this.persona.peso = peso * 10;
       }
 
     
@@ -72,7 +72,7 @@ export class AgregarComponent implements OnInit {
       this._personalService.salvarPersona(this.persona)
       .subscribe(({id}) => {
 
-        this.router.navigate([`/personal/editar/${id}`]);
+        this.router.navigate(['/personal/listado']);
 
       });
 }
@@ -80,6 +80,21 @@ export class AgregarComponent implements OnInit {
 
     }
 
+
+    somenteNumeros (e: any) {
+
+      let charCode = e.charCode ? e.charCode : e.keyCode;
+      // charCode 8 = backspace   
+      // charCode 9 = tab
+    
+      if (charCode != 8 && charCode != 9) {
+        // charCode 48 equivale a 0   
+        // charCode 57 equivale a 9
+        let max = 4;    
+    
+        if ((e.target.value.length >= max)) return false;
+      }
+    }
 
 
 

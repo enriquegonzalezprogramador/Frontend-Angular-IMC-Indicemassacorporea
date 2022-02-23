@@ -41,4 +41,11 @@ export class PersonalService {
     return this._http.get<Persona>(`${this.baseUrl}/persona/${id}`);
   }
 
+   //ELIMINAR POR ID
+
+   deletePersona(id: string)  {
+
+    return this._http.delete(`${this.baseUrl}/persona/${id}`);
+  }
+
 }

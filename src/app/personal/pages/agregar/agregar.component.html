@@ -39,6 +39,8 @@
                     <input matInput
                     type="number"
                     [(ngModel)]="persona.peso"
+                    pattern="([0-9]+\.)?[0-9]+"
+                    (keypress)="somenteNumeros($event)"
                     required>
                 </mat-form-field>
         
@@ -47,6 +49,8 @@
                     <input matInput
                     type="number"
                     [(ngModel)]="persona.altura"
+                    pattern="([0-9]+\.)?[0-9]+"
+                    (keypress)="somenteNumeros($event)"
                     required>
                 </mat-form-field>
             </div>

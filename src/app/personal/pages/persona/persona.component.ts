@@ -89,4 +89,13 @@ export class PersonaComponent implements OnInit {
     this.router.navigate(['/personal/listado']);
   }
 
+  eliminar() {
+ 
+    this.activatedRoute.params
+    .pipe(switchMap(({id}) => this.personalService.deletePersona(id)))
+    .subscribe( resp => {
+      this.regresar();
+    });
+  }
+
 }
