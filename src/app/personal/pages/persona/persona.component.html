@@ -1,0 +1,76 @@
+<mat-grid-list cols="1" *ngIf="!persona; else divPersona">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divPersona>
+    
+    <div fxLayout="row"
+            fxLayout.xs="column"
+            fxLayoutGap="30px">
+
+            <div fxFlex="50">
+                <h1><mat-icon mat-list-icon>accessibility_new</mat-icon><strong>{{ persona.nombre }}</strong> </h1>
+                <mat-divider></mat-divider>
+                <br>
+                <img [src]="persona | imagen">
+            </div>
+
+            <div fxFlex="50">
+                <h1><mat-icon mat-list-icon>list_alt</mat-icon> <strong> Dados Pessoais </strong></h1>
+                <mat-divider></mat-divider>
+
+                <mat-card >
+                
+                  
+                    <mat-card-content>
+                        <mat-list>
+                            <mat-list-item><mat-icon mat-list-icon>spa</mat-icon><span><strong>Idade: </strong> {{persona.edad}} Anos</span></mat-list-item>
+                            <mat-list-item><mat-icon mat-list-icon>fitness_center</mat-icon><span><strong>Peso: </strong> {{persona.peso | number: '2.2'}} KG</span></mat-list-item>
+                            <mat-list-item><mat-icon mat-list-icon>golf_course</mat-icon><span><strong>Altura: </strong> {{persona.altura / 100}} </span></mat-list-item>
+                        </mat-list>
+                    </mat-card-content>
+                
+                    
+                </mat-card>
+
+                
+
+              
+
+                <br>
+                <br>
+
+                <h1><mat-icon mat-list-icon>trending_up</mat-icon> <strong> Resultados</strong></h1>
+                <mat-divider></mat-divider>
+
+                <mat-card >
+                
+                  
+                    <mat-card-content>
+                      
+                        <mat-list>
+                            <mat-list-item><mat-icon mat-list-icon>gavel</mat-icon><span><strong>Indice: </strong>{{resultado.indice}}</span></mat-list-item>
+                            <mat-list-item><mat-icon mat-list-icon>description</mat-icon><span><strong>Clasificacion: </strong>{{resultado.clasificacion}}</span></mat-list-item>
+                            <mat-list-item><mat-icon mat-list-icon>donut_small</mat-icon><span><strong>Obesidade: </strong>{{resultado.obesidade}}</span></mat-list-item>
+                            <mat-list-item><span><strong>IMC: </strong></span><mat-icon mat-list-icon>subdirectory_arrow_right</mat-icon></mat-list-item>
+                            <div style="text-align: center; margin-top: 40px;"> <span style="font-size: 100px; "> {{resultado.calculo | number: '2.1-2'}} </span> </div>
+
+                        </mat-list>
+
+                    </mat-card-content>
+                
+                    <mat-card-actions>
+                        <button mat-button color="warn" (click)="regresar()">
+                            <mat-icon mat-list-icon>reply</mat-icon> 
+                            Ir pra Lista
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+
+            </div>
+
+    </div>
+
+</ng-template>

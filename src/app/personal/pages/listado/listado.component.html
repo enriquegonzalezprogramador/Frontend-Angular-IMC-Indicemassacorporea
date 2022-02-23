@@ -1,0 +1,37 @@
+
+<div style="display: flex;">
+    <mat-icon mat-list-icon>folder_shared</mat-icon> <h1>Lista Pessoas</h1>
+   
+</div>
+
+<mat-divider>
+</mat-divider>
+<br>
+
+<div style="text-align: center;">
+    <button  mat-raised-button color="warn" (click)="crearNuevoUsuario()">
+        <mat-icon>add</mat-icon>
+        Adicionar Novo
+    </button>
+</div>
+
+<div fxLayout="row wrap"
+        fxLayout.xs="column"
+fxLayoutAlign="center" fxLayoutGap="20px">
+
+
+
+    <div fxFlex="20" 
+        fxFlex.lg="20"
+        fxFlex.sm="40"
+    *ngFor="let persona of personal">
+
+ 
+    <app-persona-card [persona]="persona">/</app-persona-card>
+
+
+</div>
+
+</div>
+
+

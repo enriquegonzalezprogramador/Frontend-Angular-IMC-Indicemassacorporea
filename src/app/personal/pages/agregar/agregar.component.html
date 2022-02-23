@@ -1,0 +1,74 @@
+
+<h1>Novo Usuario: <small>{{persona.nombre}}</small> </h1>
+
+<div fxLayout="row" fxLayoutGap="40px"  fxLayout.xs="column">
+
+    <div fxFlex="20">
+        
+     </div>
+     
+
+    <div fxFlex="60" fxLayout="column">
+
+        <div fxLayout="row" 
+        fxLayoutGap="20px"
+        fxLayout.xs="column"
+        >
+            <mat-form-field fxFlex="100">
+                <mat-label>Nome Completo</mat-label>
+                <input matInput
+                type="text"
+                [(ngModel)]="persona.nombre"
+                required>
+            </mat-form-field>
+    
+            <mat-form-field fxFlex="100">
+                <mat-label>Idae</mat-label>
+                <input matInput
+                type="number"
+                [(ngModel)]="persona.edad"
+                required>
+            </mat-form-field>
+        </div>
+
+        <div fxFlex="50" fxLayout="column" >
+
+            <div fxLayout="row" fxLayoutGap="20px"  fxLayout.xs="column">
+                <mat-form-field fxFlex="100">
+                    <mat-label>Peso ( Ex:60 kg)</mat-label>
+                    <input matInput
+                    type="number"
+                    [(ngModel)]="persona.peso"
+                    required>
+                </mat-form-field>
+        
+                <mat-form-field fxFlex="100">
+                    <mat-label>Altura (Ex:1,70)</mat-label>
+                    <input matInput
+                    type="number"
+                    [(ngModel)]="persona.altura"
+                    required>
+                </mat-form-field>
+            </div>
+
+            <br>
+            
+            <button [disabled]="(persona.nombre != '' && persona.edad > 0 && persona.altura > 0  && persona.peso > 0) ? false : true" mat-raised-button color="warn" (click)="guardar()">
+                <mat-icon>save</mat-icon>
+                Salvar
+            </button>
+
+    </div>
+
+
+
+
+
+</div>
+
+<div fxFlex="20"  fxLayoutAlign.xs="center" >
+    <button mat-button color="warn" routerLink="/personal/listado">
+        <mat-icon mat-list-icon>reply</mat-icon> 
+        Ir pra Lista
+    </button>
+</div>
