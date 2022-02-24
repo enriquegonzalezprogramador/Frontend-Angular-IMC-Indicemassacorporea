@@ -87,7 +87,7 @@ export class AgregarComponent implements OnInit {
     }
 
 
-    somenteNumeros (e: any) {
+    decimal (e: any) {
 
       let charCode = e.charCode ? e.charCode : e.keyCode;
       // charCode 8 = backspace   
@@ -99,6 +99,8 @@ export class AgregarComponent implements OnInit {
         let max = 4;    
     
         if ((e.target.value.length >= max)) return false;
+
+        
       }
     }
 
